@@ -20,15 +20,15 @@ export default function EyhanNavbar({ brand, navigation, contact = {} }) {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-      {/* Top Utility Bar (Contact info, location, social links, VIP tag) */}
+      {/* Top Utility Bar (Hidden on mobile to keep header clean and compact) */}
       <div
-        className={`transition-all duration-300 overflow-hidden ${
+        className={`transition-all duration-300 overflow-hidden hidden sm:block ${
           isScrolled
             ? 'max-h-0 py-0 opacity-0 border-transparent'
-            : 'max-h-16 py-2 px-2 sm:px-8 lg:px-12 border-b border-white/10 bg-eyhan-dark/70 backdrop-blur-md opacity-100'
+            : 'max-h-16 py-2 px-2 sm:px-8 lg:px-10 border-b border-white/10 bg-eyhan-dark/70 backdrop-blur-md opacity-100'
         } text-[11px] font-sans text-eyhan-sand/80`}
       >
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div className="max-w-[1536px] mx-auto flex items-center justify-between gap-3">
           <div className="flex items-center gap-6 text-[10px] sm:text-[11px] tracking-widest uppercase">
             <span className="flex items-center gap-1.5 text-eyhan-gold">
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -75,36 +75,36 @@ export default function EyhanNavbar({ brand, navigation, contact = {} }) {
         </div>
       </div>
 
-      {/* Main Luxury Brand & Nav Bar */}
+      {/* Main Luxury Brand & Nav Bar (Compact & Sleek on mobile) */}
       <div
-        className={`px-2 sm:px-8 lg:px-12 transition-all duration-300 ${
+        className={`px-2 sm:px-8 lg:px-10 transition-all duration-300 ${
           isScrolled
-            ? 'py-3.5 bg-eyhan-dark/95 backdrop-blur-xl border-b border-eyhan-border shadow-2xl'
-            : 'py-5 bg-gradient-to-b from-eyhan-dark/90 via-eyhan-dark/50 to-transparent'
+            ? 'py-2.5 sm:py-3.5 bg-eyhan-dark/95 backdrop-blur-xl border-b border-eyhan-border shadow-2xl'
+            : 'py-3 sm:py-5 bg-gradient-to-b from-eyhan-dark/95 via-eyhan-dark/60 to-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        <div className="max-w-[1536px] mx-auto flex items-center justify-between">
           {/* Logo with Imperial Wings/Crest look */}
           <button
             onClick={() => navigate('/')}
-            className="flex items-center gap-3 text-left group focus:outline-none"
+            className="flex items-center gap-2.5 sm:gap-3 text-left group focus:outline-none"
           >
             <div
-              className={`rounded-full border-2 border-eyhan-gold flex items-center justify-center font-serif tracking-wider text-eyhan-gold bg-eyhan-surface/80 shadow-goldGlow group-hover:scale-105 transition-all duration-300 ${
-                isScrolled ? 'w-9 h-9 text-lg' : 'w-11 h-11 text-xl'
+              className={`rounded-full border border-eyhan-gold flex items-center justify-center font-serif tracking-wider text-eyhan-gold bg-eyhan-surface/80 shadow-goldGlow group-hover:scale-105 transition-all duration-300 ${
+                isScrolled ? 'w-7 h-7 sm:w-9 sm:h-9 text-xs sm:text-base' : 'w-8 h-8 sm:w-10 sm:h-10 text-xs sm:text-base'
               }`}
             >
               {brand?.name ? brand.name.charAt(0) : 'E'}
             </div>
             <div>
               <span
-                className={`font-sans tracking-[0.32em] text-white font-bold block transition-all duration-300 ${
-                  isScrolled ? 'text-xl sm:text-2xl' : 'text-2xl'
+                className={`font-sans tracking-[0.16em] sm:tracking-[0.28em] text-white font-bold block transition-all duration-300 ${
+                  isScrolled ? 'text-sm sm:text-lg' : 'text-sm sm:text-xl'
                 }`}
               >
                 {brand?.name || 'E-YHAN'}
               </span>
-              <span className="text-[9px] uppercase tracking-[0.38em] text-eyhan-gold block font-medium">
+              <span className="text-[7px] sm:text-[9px] uppercase tracking-[0.18em] sm:tracking-[0.28em] text-eyhan-gold block font-medium">
                 Resort &amp; Private Reserve
               </span>
             </div>

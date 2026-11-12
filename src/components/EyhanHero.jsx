@@ -12,6 +12,24 @@ export default function EyhanHero({ hero, villas = [] }) {
   const [children, setChildren] = useState('0');
   const [selectedVilla] = useState(villas[0]?.name || 'The Presidential Ocean Estate');
 
+  const formatDateLabel = (dateStr) => {
+    if (!dateStr) return '';
+    const d = new Date(dateStr + 'T00:00:00');
+    if (isNaN(d.getTime())) return dateStr;
+    return d.toLocaleDateString('en-US', {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    });
+  };
+
+  const formatDayName = (dateStr) => {
+    if (!dateStr) return '';
+    const d = new Date(dateStr + 'T00:00:00');
+    if (isNaN(d.getTime())) return '';
+    return d.toLocaleDateString('en-US', { weekday: 'short' });
+  };
+
   const handleCheckAvailability = (e) => {
     e.preventDefault();
     navigate(
@@ -34,119 +52,165 @@ export default function EyhanHero({ hero, villas = [] }) {
         <div className="absolute inset-0 bg-gradient-to-b from-eyhan-dark/85 via-transparent to-eyhan-dark" />
       </div>
 
-      {/* Top spacing to give room for the absolute Navbar */}
-      <div className="h-28 sm:h-32 shrink-0 z-10" />
+      {/* Top spacing to give room for the fixed Navbar */}
+      <div className="h-20 sm:h-28 shrink-0 z-10" />
 
       {/* Centerpiece Headline (Unique Experience — ENJOY WITH US) */}
-      <div className="relative z-10 max-w-5xl mx-auto px-2 sm:px-6 text-center my-auto">
-        <h1 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-normal tracking-wide drop-shadow-2xl mb-3 sm:mb-4">
+      <div className="relative z-10 max-w-5xl mx-auto px-2 sm:px-6 lg:px-10 text-center my-auto">
+        <h1 className="font-serif text-2xl sm:text-5xl md:text-7xl lg:text-8xl text-white font-normal tracking-wide drop-shadow-2xl mb-2 sm:mb-4">
           Unique Experience
         </h1>
 
         {/* Symmetrical Gold Accent Divider with Sub-motto */}
-        <div className="inline-flex items-center justify-center gap-4 sm:gap-6 my-2 sm:my-3">
-          <span className="w-10 sm:w-20 h-px bg-eyhan-gold" />
-          <span className="text-[11px] sm:text-xs md:text-sm uppercase tracking-[0.38em] text-eyhan-goldLight font-sans font-semibold drop-shadow">
+        <div className="inline-flex items-center justify-center gap-3 sm:gap-6 my-1.5 sm:my-3">
+          <span className="w-6 sm:w-16 h-px bg-eyhan-gold" />
+          <span className="text-[9px] sm:text-xs md:text-sm uppercase tracking-[0.24em] sm:tracking-[0.38em] text-eyhan-goldLight font-sans font-semibold drop-shadow">
             ENJOY WITH US
           </span>
-          <span className="w-10 sm:w-20 h-px bg-eyhan-gold" />
+          <span className="w-6 sm:w-16 h-px bg-eyhan-gold" />
         </div>
 
-        <p className="max-w-xl mx-auto text-xs sm:text-sm text-white/85 font-light leading-relaxed mt-3 sm:mt-5 drop-shadow hidden sm:block">
+        <p className="max-w-xl mx-auto text-xs sm:text-sm text-white/85 font-light leading-relaxed mt-2 sm:mt-5 drop-shadow hidden sm:block">
           Immerse yourself in Sorsogon’s premier private reserve. Bespoke cliffside villas, illuminated infinity pools, and quiet Pacific elegance.
         </p>
       </div>
 
-      {/* Bottom Booking Picker - 100% inside the 100vh viewport */}
-      <div className="relative z-20 w-full max-w-6xl mx-auto px-2 sm:px-8 pb-4 sm:pb-8 shrink-0">
+      {/* Bottom Booking Picker - Ultra Luxury Dark Glass Console */}
+      <div className="relative z-20 w-full max-w-[1536px] mx-auto px-2 sm:px-8 lg:px-10 pb-4 sm:pb-8 shrink-0">
         <form
           onSubmit={handleCheckAvailability}
-          className="bg-white rounded-none shadow-2xl border border-gray-100 grid grid-cols-2 lg:grid-cols-5 text-eyhan-dark divide-y lg:divide-y-0 lg:divide-x divide-gray-200"
+          className="bg-eyhan-dark/95 backdrop-blur-2xl border border-eyhan-gold/40 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] rounded-sm grid grid-cols-2 lg:grid-cols-5 divide-y sm:divide-y-0 lg:divide-x divide-eyhan-border/50 overflow-hidden ring-1 ring-white/10"
         >
           {/* Arrival Date */}
-          <div className="p-3.5 sm:p-5 flex flex-col justify-between group hover:bg-amber-50/40 transition-colors col-span-1">
-            <div className="flex items-center justify-between mb-1">
-              <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gray-500 font-sans font-medium">
-                Arrival Date
-              </span>
-              <svg className="w-3.5 h-3.5 text-eyhan-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
+          <div className="relative p-3.5 sm:p-5 flex flex-col justify-between group hover:bg-white/[0.04] transition-all col-span-1 cursor-pointer">
+            {/* Invisible native date picker covering the cell to eliminate duplicate browser icons */}
             <input
               type="date"
               required
               value={arrival}
               onChange={(e) => setArrival(e.target.value)}
-              className="font-serif text-sm sm:text-lg text-gray-900 bg-transparent focus:outline-none cursor-pointer"
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20 [color-scheme:dark]"
             />
-          </div>
-
-          {/* Departure Date */}
-          <div className="p-3.5 sm:p-5 flex flex-col justify-between group hover:bg-amber-50/40 transition-colors col-span-1">
-            <div className="flex items-center justify-between mb-1">
-              <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gray-500 font-sans font-medium">
-                Departure Date
+            <div className="flex items-center justify-between mb-1.5 pointer-events-none">
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-eyhan-gold font-sans font-medium">
+                Arrival Date
               </span>
-              <svg className="w-3.5 h-3.5 text-eyhan-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 text-eyhan-gold transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
             </div>
+            <div className="pointer-events-none">
+              <div className="font-serif text-sm sm:text-xl text-white font-normal tracking-wide group-hover:text-eyhan-goldLight transition-colors">
+                {formatDateLabel(arrival)}
+              </div>
+              <div className="text-[10px] font-sans text-eyhan-sand/60 tracking-wider uppercase mt-0.5">
+                {formatDayName(arrival)}
+              </div>
+            </div>
+          </div>
+
+          {/* Departure Date */}
+          <div className="relative p-3.5 sm:p-5 flex flex-col justify-between group hover:bg-white/[0.04] transition-all col-span-1 cursor-pointer">
             <input
               type="date"
               required
               value={departure}
               onChange={(e) => setDeparture(e.target.value)}
-              className="font-serif text-sm sm:text-lg text-gray-900 bg-transparent focus:outline-none cursor-pointer"
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20 [color-scheme:dark]"
             />
+            <div className="flex items-center justify-between mb-1.5 pointer-events-none">
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-eyhan-gold font-sans font-medium">
+                Departure Date
+              </span>
+              <svg className="w-4 h-4 text-eyhan-gold transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+            </div>
+            <div className="pointer-events-none">
+              <div className="font-serif text-sm sm:text-xl text-white font-normal tracking-wide group-hover:text-eyhan-goldLight transition-colors">
+                {formatDateLabel(departure)}
+              </div>
+              <div className="text-[10px] font-sans text-eyhan-sand/60 tracking-wider uppercase mt-0.5">
+                {formatDayName(departure)}
+              </div>
+            </div>
           </div>
 
           {/* Adults Count */}
-          <div className="p-3.5 sm:p-5 flex flex-col justify-between group hover:bg-amber-50/40 transition-colors col-span-1">
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gray-500 font-sans font-medium mb-1">
-              Adults
-            </span>
+          <div className="relative p-3.5 sm:p-5 flex flex-col justify-between group hover:bg-white/[0.04] transition-all col-span-1 cursor-pointer">
             <select
               value={adults}
               onChange={(e) => setAdults(e.target.value)}
-              className="font-serif text-lg sm:text-2xl text-gray-900 bg-transparent focus:outline-none cursor-pointer w-full font-normal"
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20 bg-eyhan-dark text-white"
             >
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5+">5+</option>
+              <option value="1" className="bg-eyhan-surface text-white">1 Adult</option>
+              <option value="2" className="bg-eyhan-surface text-white">2 Adults</option>
+              <option value="3" className="bg-eyhan-surface text-white">3 Adults</option>
+              <option value="4" className="bg-eyhan-surface text-white">4 Adults</option>
+              <option value="5+" className="bg-eyhan-surface text-white">5+ Adults</option>
             </select>
+            <div className="flex items-center justify-between mb-1.5 pointer-events-none">
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-eyhan-gold font-sans font-medium">
+                Adults
+              </span>
+              <svg className="w-3.5 h-3.5 text-eyhan-gold/80 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+            <div className="pointer-events-none">
+              <div className="font-serif text-base sm:text-2xl text-white font-normal group-hover:text-eyhan-goldLight transition-colors">
+                {adults} {adults === '1' ? 'Adult' : 'Adults'}
+              </div>
+              <div className="text-[10px] font-sans text-eyhan-sand/60 tracking-wider uppercase mt-0.5">
+                Ages 13+
+              </div>
+            </div>
           </div>
 
           {/* Children Count */}
-          <div className="p-3.5 sm:p-5 flex flex-col justify-between group hover:bg-amber-50/40 transition-colors col-span-1">
-            <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-gray-500 font-sans font-medium mb-1">
-              Children
-            </span>
+          <div className="relative p-3.5 sm:p-5 flex flex-col justify-between group hover:bg-white/[0.04] transition-all col-span-1 cursor-pointer">
             <select
               value={children}
               onChange={(e) => setChildren(e.target.value)}
-              className="font-serif text-lg sm:text-2xl text-gray-900 bg-transparent focus:outline-none cursor-pointer w-full font-normal"
+              className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20 bg-eyhan-dark text-white"
             >
-              <option value="0">0</option>
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4+">4+</option>
+              <option value="0" className="bg-eyhan-surface text-white">0 Children</option>
+              <option value="1" className="bg-eyhan-surface text-white">1 Child</option>
+              <option value="2" className="bg-eyhan-surface text-white">2 Children</option>
+              <option value="3" className="bg-eyhan-surface text-white">3 Children</option>
+              <option value="4+" className="bg-eyhan-surface text-white">4+ Children</option>
             </select>
+            <div className="flex items-center justify-between mb-1.5 pointer-events-none">
+              <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.24em] text-eyhan-gold font-sans font-medium">
+                Children
+              </span>
+              <svg className="w-3.5 h-3.5 text-eyhan-gold/80 transition-transform group-hover:translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
+            <div className="pointer-events-none">
+              <div className="font-serif text-base sm:text-2xl text-white font-normal group-hover:text-eyhan-goldLight transition-colors">
+                {children === '0' ? 'None' : `${children} ${children === '1' ? 'Child' : 'Children'}`}
+              </div>
+              <div className="text-[10px] font-sans text-eyhan-sand/60 tracking-wider uppercase mt-0.5">
+                Ages 0 - 12
+              </div>
+            </div>
           </div>
 
           {/* Gold Action Button ("CHECK AVAILABILITY") */}
           <button
             type="submit"
-            className="w-full bg-[#c59f27] hover:bg-[#b08c1e] text-white p-3.5 sm:p-5 flex flex-col items-center justify-center text-center transition-all duration-300 font-sans group shadow-md col-span-2 lg:col-span-1"
+            className="relative w-full bg-gradient-to-r from-eyhan-gold via-eyhan-goldLight to-eyhan-gold text-eyhan-dark p-4 sm:p-5 flex flex-col items-center justify-center text-center transition-all duration-300 font-sans group shadow-goldGlow hover:brightness-105 active:scale-[0.99] col-span-2 lg:col-span-1 overflow-hidden"
           >
-            <span className="text-xs sm:text-sm uppercase tracking-[0.22em] font-semibold block leading-tight">
-              Check Availability
+            {/* Shimmer sweep animation on hover */}
+            <span className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+            <span className="relative z-10 text-[11px] sm:text-sm uppercase tracking-[0.24em] font-bold block flex items-center gap-2">
+              <span>Check Availability</span>
+              <span className="transition-transform duration-300 group-hover:translate-x-1.5">&rarr;</span>
             </span>
-            <span className="text-[9px] sm:text-[10px] tracking-widest text-amber-100 opacity-80 group-hover:translate-x-1 transition-transform mt-0.5 inline-block">
-              Best Rates Guaranteed &rarr;
+            <span className="relative z-10 text-[9px] tracking-[0.2em] font-medium text-eyhan-dark/85 mt-1 block uppercase">
+              Best Rate Guaranteed
             </span>
           </button>
         </form>

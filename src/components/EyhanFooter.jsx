@@ -6,7 +6,7 @@ export default function EyhanFooter({ brand, navigation, contact }) {
 
   return (
     <footer className="bg-eyhan-dark border-t border-eyhan-border pt-20 pb-12 text-eyhan-sand/80">
-      <div className="max-w-7xl mx-auto px-2 sm:px-8 lg:px-12">
+      <div className="max-w-[1536px] mx-auto px-2 sm:px-8 lg:px-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 pb-16 border-b border-eyhan-borderSubtle">
           {/* Brand Info */}
           <div className="lg:col-span-5 space-y-6">

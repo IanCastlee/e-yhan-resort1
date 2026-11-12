@@ -47,6 +47,83 @@ export const eyhanResortData = {
       'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=85',
   },
 
+  scrollytelling: {
+    eyebrow: 'EXPERIENCE CHRONICLES',
+    heading: 'A Day in the Life at E-YHAN',
+    subtitle:
+      'Scroll to witness how every hour unfolds within our private sanctuary—from dawn over the Pacific to celestial midnight dining.',
+    chapters: [
+      {
+        id: 'dawn',
+        step: '01',
+        time: '06:30 AM',
+        title: 'First Light & Coastal Awakening',
+        subtitle: 'The Pacific Ocean Awakens in Absolute Silence',
+        description:
+          'As the first rays of morning sun filter through floor-to-ceiling mahogany louvers, the private reserve awakens. Step out onto your cantilevered timber deck as your dedicated butler delivers freshly prepared tropical fruits and single-origin mountain brew.',
+        highlights: [
+          'Dedicated In-Villa Butler Service',
+          'Unobstructed 270° Sunrise Ocean Horizon',
+          'Single-Origin Mount Bulusan Botanicals',
+        ],
+        quote: '“There is a moment right before sunrise when the ocean is as still as mirror glass.”',
+        image:
+          'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=88',
+      },
+      {
+        id: 'midday',
+        step: '02',
+        time: '11:00 AM',
+        title: 'Geothermal Mineral Restoration',
+        subtitle: 'Healing Hydrothermal Veins of Mount Bulusan',
+        description:
+          'Descend into subterranean volcanic grottos carved directly into the coastal rock. Naturally heated sulfur-rich mineral springs and warmed volcanic basalt stones soothe tension and re-energize your mind in complete serenity.',
+        highlights: [
+          'Subterranean Volcanic Rock Grottos',
+          'Natural Sulfur Geothermal Veins',
+          'Indigenous Bamboo & Basalt Muscle Therapy',
+        ],
+        quote: '“Centuries of geothermal warmth channeled into pure restorative sanctuary.”',
+        image:
+          'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1600&q=88',
+      },
+      {
+        id: 'sunset',
+        step: '03',
+        time: '04:45 PM',
+        title: 'Catamaran Trails & Secret Grottos',
+        subtitle: 'Private Expeditions Over Emerald Estuaries',
+        description:
+          'Board the private E-YHAN luxury catamaran to explore secluded coastal estuaries, tidal caves, and untouched sandbars inaccessible by road. Snorkel above pristine coral gardens as schools of tropical fish glide beneath you.',
+        highlights: [
+          'Private Dual-Hull Catamaran Charter',
+          'Secret Sandbar Champagne Lounge',
+          'Protected Marine Estuary Guided Snorkel',
+        ],
+        quote: '“True luxury is having an entire pristine island coastline completely to yourself.”',
+        image:
+          'https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&w=1600&q=88',
+      },
+      {
+        id: 'night',
+        step: '04',
+        time: '08:30 PM',
+        title: 'Celestial Gastronomy Under the Stars',
+        subtitle: 'Bespoke Coastal Dining & Stargazing',
+        description:
+          'As dusk yields to star-studded Pacific skies, an unhurried multi-course tasting menu awaits along your private pool pavilion. Savor wild-caught seafood and artisanal island delicacies paired with rare vintages from our temperature-controlled reserve cellar.',
+        highlights: [
+          'Private In-Villa Executive Chef',
+          'Sommelier Reserve Rare Wine Flight',
+          'Nightlit Cantilevered Infinity Pool Deck',
+        ],
+        quote: '“An unhurried celebration of taste, ocean breezes, and timeless elegance.”',
+        image:
+          'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1600&q=88',
+      },
+    ],
+  },
+
   villas: [
     {
       id: 'the-presidential-ocean-estate',

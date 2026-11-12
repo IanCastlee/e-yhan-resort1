@@ -8,7 +8,7 @@ export default function EyhanExperiencesPage() {
   const { brand, experiences } = eyhanResortData;
 
   return (
-    <div className="pt-36 pb-28 px-6 sm:px-12 max-w-7xl mx-auto">
+    <div className="pt-36 pb-28 px-2 sm:px-8 lg:px-10 max-w-[1536px] mx-auto">
       <Helmet>
         <title>{`Haute Experiences & Expeditions | ${brand.name}`}</title>
       </Helmet>
