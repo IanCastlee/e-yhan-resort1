@@ -19,10 +19,10 @@ export default function EyhanNavbar({ brand, navigation, contact = {} }) {
   const phoneDisplay = contact?.vipPhone ? contact.vipPhone.split('/')[0] : '+63 (2) 8899-EYHAN';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+    <header className="fixed top-0 left-0 right-0 z-50">
       {/* Top Utility Bar (Hidden on mobile to keep header clean and compact) */}
       <div
-        className={`transition-all duration-300 overflow-hidden hidden sm:block ${
+        className={`overflow-hidden hidden sm:block transition-[max-height,opacity] duration-300 ${
           isScrolled
             ? 'max-h-0 py-0 opacity-0 border-transparent'
             : 'max-h-16 py-2 px-2 sm:px-8 lg:px-10 border-b border-white/10 bg-eyhan-dark/70 backdrop-blur-md opacity-100'
@@ -77,7 +77,7 @@ export default function EyhanNavbar({ brand, navigation, contact = {} }) {
 
       {/* Main Luxury Brand & Nav Bar (Compact & Sleek on mobile) */}
       <div
-        className={`px-2 sm:px-8 lg:px-10 transition-all duration-300 ${
+        className={`px-2 sm:px-8 lg:px-10 transition-[background-color,padding,border-color,box-shadow] duration-300 ${
           isScrolled
             ? 'py-2.5 sm:py-3.5 bg-eyhan-dark/95 backdrop-blur-xl border-b border-eyhan-border shadow-2xl'
             : 'py-3 sm:py-5 bg-gradient-to-b from-eyhan-dark/95 via-eyhan-dark/60 to-transparent'

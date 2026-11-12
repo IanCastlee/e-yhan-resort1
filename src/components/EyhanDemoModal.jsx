@@ -6,10 +6,7 @@ export default function EyhanDemoModal() {
   useEffect(() => {
     const dismissed = sessionStorage.getItem('eyhan_demo_dismissed');
     if (!dismissed) {
-      const timer = setTimeout(() => {
-        setIsOpen(true);
-      }, 350);
-      return () => clearTimeout(timer);
+      setIsOpen(true);
     }
   }, []);
 
