@@ -21,9 +21,9 @@ export default function EyhanDemoModal() {
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
+      className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-3 pt-16 sm:p-6 overflow-y-auto"
     >
-      <div className="bg-eyhan-surface border-2 border-eyhan-gold w-full max-w-[calc(100vw-24px)] sm:max-w-lg mx-auto p-4 sm:p-10 shadow-goldGlow relative text-left box-border">
+      <div className="bg-eyhan-surface border-2 border-eyhan-gold w-full max-w-[calc(100vw-24px)] sm:max-w-lg mx-auto p-4 sm:p-8 shadow-goldGlow relative text-left box-border my-auto">
         {/* Badge & Close */}
         <div className="flex items-center justify-between mb-4 sm:mb-6">
           <span className="px-2.5 sm:px-3 py-1 bg-eyhan-gold/15 border border-eyhan-gold text-[9px] sm:text-[10px] uppercase tracking-[0.16em] sm:tracking-[0.24em] text-eyhan-gold font-sans font-medium">
