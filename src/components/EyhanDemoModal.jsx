@@ -21,12 +21,12 @@ export default function EyhanDemoModal() {
     <div
       role="dialog"
       aria-modal="true"
-      className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-2 sm:p-6"
+      className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
     >
-      <div className="bg-eyhan-surface border-2 border-eyhan-gold max-w-lg w-full p-5 sm:p-10 shadow-goldGlow relative text-left">
+      <div className="bg-eyhan-surface border-2 border-eyhan-gold w-full max-w-[calc(100vw-24px)] sm:max-w-lg mx-auto p-4 sm:p-10 shadow-goldGlow relative text-left box-border">
         {/* Badge & Close */}
-        <div className="flex items-center justify-between mb-6">
-          <span className="px-3 py-1 bg-eyhan-gold/15 border border-eyhan-gold text-[10px] uppercase tracking-[0.24em] text-eyhan-gold font-sans font-medium">
+        <div className="flex items-center justify-between mb-4 sm:mb-6">
+          <span className="px-2.5 sm:px-3 py-1 bg-eyhan-gold/15 border border-eyhan-gold text-[9px] sm:text-[10px] uppercase tracking-[0.16em] sm:tracking-[0.24em] text-eyhan-gold font-sans font-medium">
             Demonstration Prototype
           </span>
           <button
@@ -38,7 +38,7 @@ export default function EyhanDemoModal() {
           </button>
         </div>
 
-        <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal mb-4">
+        <h3 className="font-serif text-xl sm:text-3xl text-white font-normal mb-3 sm:mb-4">
           Website Demonstration Notice
         </h3>
 
@@ -46,14 +46,14 @@ export default function EyhanDemoModal() {
           This website is an interactive prototype created for design demonstration and portfolio review purposes. All brand names, locations, rates, and imagery are sample placeholders (dummy data).
         </p>
 
-        <div className="bg-eyhan-dark border-l-2 border-eyhan-gold p-4 mb-8 text-xs text-eyhan-sand/90 font-light">
+        <div className="bg-eyhan-dark border-l-2 border-eyhan-gold p-3.5 sm:p-4 mb-6 sm:mb-8 text-xs text-eyhan-sand/90 font-light leading-relaxed">
           No real bookings, reservations, or financial transactions will be processed.
         </div>
 
-        <div className="flex justify-end">
+        <div className="flex justify-end w-full">
           <button
             onClick={handleDismiss}
-            className="px-8 py-3.5 bg-eyhan-gold hover:bg-eyhan-goldLight text-eyhan-dark font-sans text-xs uppercase tracking-[0.22em] font-medium transition-all shadow-md"
+            className="w-full sm:w-auto text-center px-4 sm:px-8 py-3 sm:py-3.5 bg-eyhan-gold hover:bg-eyhan-goldLight text-eyhan-dark font-sans text-[11px] sm:text-xs uppercase tracking-[0.12em] sm:tracking-[0.22em] font-semibold transition-all shadow-md whitespace-normal leading-snug"
           >
             I Understand, Open Demo Website
           </button>
